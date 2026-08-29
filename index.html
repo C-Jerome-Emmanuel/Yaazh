@@ -1,0 +1,6001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+               maximum-scale=1.0, user-scalable=no">
+
+<meta name="theme-color" content="#ffeaf2">
+<meta name="description"
+      content="A tiny little digital world made for Yazhini 💗">
+
+<title>Yazhini.exe 💗</title>
+
+<style>
+
+/* =========================================================
+   YAZHINI.EXE — THE BESTEST FRIENDSHIP GAME
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Patrick+Hand&display=swap');
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+
+    --pink: #f7a9c7;
+    --pink-dark: #e875a5;
+    --pink-light: #ffe5ef;
+
+    --lavender: #cfc2f1;
+    --lavender-light: #eee9ff;
+
+    --cream: #fffaf3;
+    --peach: #ffd9c7;
+
+    --rose: #bd668b;
+
+    --brown: #574452;
+    --muted: #927f8d;
+
+    --white: #ffffff;
+
+    --yellow: #ffd84d;
+    --yellow-dark: #e4ad00;
+    --yellow-light: #fff6bd;
+
+    --shadow:
+        0 20px 50px rgba(106, 70, 92, 0.12);
+
+    --soft-shadow:
+        0 10px 30px rgba(106, 70, 92, 0.10);
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            #ffe7f1 0,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #eee8ff 0,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fffaf7,
+            #fff1f6
+        );
+
+    color: var(--brown);
+
+    font-family:
+        "Baloo 2",
+        system-ui,
+        sans-serif;
+
+    transition:
+        background 1s ease,
+        color .7s ease;
+}
+
+
+/* =========================================================
+   YELLOW MODE
+   ========================================================= */
+
+body.yellow-mode {
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            #fff5a8 0,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            #ffe37a 0,
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #fffdf0,
+            #fff4a8
+        );
+
+}
+
+body.yellow-mode .game-card {
+
+    border-color: #f2d875;
+
+}
+
+body.yellow-mode .progress-bar {
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffe16a,
+            #e9b800
+        );
+
+}
+
+body.yellow-mode .pill {
+
+    color: #9b7900;
+    border-color: #f0d77a;
+
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+#app {
+
+    min-height: 100vh;
+
+    position: relative;
+
+}
+
+
+/* =========================================================
+   SCREEN
+   ========================================================= */
+
+.screen {
+
+    min-height: 100vh;
+
+    padding:
+        25px 18px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.screen.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+
+    width:
+        min(100%, 760px);
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATIONS
+   ========================================================= */
+
+.bg-decoration {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    z-index: 0;
+
+    opacity: .65;
+
+}
+
+.decor-1 {
+
+    top: 8%;
+    left: 7%;
+
+    animation:
+        floatAround 5s ease-in-out infinite;
+
+}
+
+.decor-2 {
+
+    top: 17%;
+    right: 8%;
+
+    animation:
+        floatAround 6s ease-in-out infinite reverse;
+
+}
+
+.decor-3 {
+
+    bottom: 12%;
+    left: 12%;
+
+    animation:
+        floatAround 7s ease-in-out infinite;
+
+}
+
+.decor-4 {
+
+    bottom: 18%;
+    right: 10%;
+
+    animation:
+        floatAround 5.5s ease-in-out infinite reverse;
+
+}
+
+@keyframes floatAround {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            rotate(8deg);
+    }
+
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+.script {
+
+    font-family:
+        "Patrick Hand",
+        cursive;
+
+}
+
+h1 {
+
+    font-size:
+        clamp(
+            3.1rem,
+            13vw,
+            6rem
+        );
+
+    line-height: .9;
+
+    font-weight: 400;
+
+}
+
+h2 {
+
+    font-size:
+        clamp(
+            2.25rem,
+            9vw,
+            4rem
+        );
+
+    line-height: 1;
+
+    font-weight: 400;
+
+}
+
+h3 {
+
+    font-size:
+        1.7rem;
+
+}
+
+p {
+
+    font-size:
+        1.08rem;
+
+    line-height:
+        1.65;
+
+}
+
+.small {
+
+    font-size:
+        .85rem;
+
+    color:
+        var(--muted);
+
+}
+
+.center {
+
+    text-align:
+        center;
+
+}
+
+
+/* =========================================================
+   GAME CARD
+   ========================================================= */
+
+.game-card {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .84
+        );
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+
+    border:
+        1px solid
+        rgba(
+            235,
+            210,
+            225,
+            .9
+        );
+
+    border-radius:
+        38px;
+
+    padding:
+        clamp(
+            28px,
+            6vw,
+            55px
+        );
+
+    box-shadow:
+        var(--shadow);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+}
+
+.game-card::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    width:
+        250px;
+
+    height:
+        250px;
+
+    background:
+        rgba(
+            255,
+            220,
+            236,
+            .25
+        );
+
+    border-radius:
+        50%;
+
+    top:
+        -130px;
+
+    right:
+        -100px;
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button {
+
+    font-family:
+        inherit;
+
+}
+
+.btn {
+
+    border:
+        none;
+
+    min-height:
+        50px;
+
+    padding:
+        13px 23px;
+
+    border-radius:
+        999px;
+
+    font-size:
+        1rem;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    color:
+        white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink-dark),
+            var(--pink)
+        );
+
+    box-shadow:
+        0 10px 22px
+        rgba(
+            232,
+            117,
+            165,
+            .25
+        );
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+    position:
+        relative;
+
+    z-index:
+        3;
+
+}
+
+.btn:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+}
+
+.btn:active {
+
+    transform:
+        scale(.96);
+
+}
+
+.btn.secondary {
+
+    color:
+        var(--brown);
+
+    background:
+        white;
+
+    border:
+        1px solid #eadbe4;
+
+    box-shadow:
+        none;
+
+}
+
+.btn.lavender {
+
+    color:
+        #594d6c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9d0f5,
+            #c6b9ed
+        );
+
+}
+
+.btn.yellow {
+
+    color:
+        #705900;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe36c,
+            #f5c62c
+        );
+
+}
+
+.btn.big {
+
+    padding:
+        16px 30px;
+
+    font-size:
+        1.05rem;
+
+}
+
+
+/* =========================================================
+   PILL
+   ========================================================= */
+
+.pill {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+    padding:
+        8px 14px;
+
+    border-radius:
+        999px;
+
+    background:
+        #fff;
+
+    border:
+        1px solid
+        #efdde7;
+
+    font-size:
+        .78rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .04em;
+
+    color:
+        var(--rose);
+
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.progress-wrap {
+
+    margin-bottom:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+.progress-label {
+
+    font-size:
+        .72rem;
+
+    font-weight:
+        800;
+
+    color:
+        var(--muted);
+
+    white-space:
+        nowrap;
+
+}
+
+.progress {
+
+    flex:
+        1;
+
+    height:
+        8px;
+
+    background:
+        #f1e6ed;
+
+    border-radius:
+        99px;
+
+    overflow:
+        hidden;
+
+}
+
+.progress-bar {
+
+    height:
+        100%;
+
+    width:
+        0%;
+
+    border-radius:
+        99px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--pink),
+            var(--pink-dark)
+        );
+
+    transition:
+        width .5s ease;
+
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.actions {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+
+    flex-wrap:
+        wrap;
+
+    margin-top:
+        28px;
+
+}
+
+
+/* =========================================================
+   OPENING
+   ========================================================= */
+
+.opening-character {
+
+    font-size:
+        4.5rem;
+
+    margin:
+        25px auto 10px;
+
+    animation:
+        peek 2.2s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes peek {
+
+    0%, 100% {
+
+        transform:
+            translateY(8px);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-5px);
+
+    }
+
+}
+
+
+/* =========================================================
+   PRESIDENT / VP
+   ========================================================= */
+
+.badges {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        15px;
+
+    flex-wrap:
+        wrap;
+
+    margin:
+        28px 0;
+
+}
+
+.badge {
+
+    width:
+        145px;
+
+    padding:
+        23px 15px;
+
+    background:
+        white;
+
+    border:
+        1px solid #efdde7;
+
+    border-radius:
+        26px;
+
+    box-shadow:
+        var(--soft-shadow);
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .2s ease;
+
+}
+
+.badge:hover {
+
+    transform:
+        rotate(-3deg)
+        translateY(-5px);
+
+}
+
+.badge-icon {
+
+    font-size:
+        3rem;
+
+}
+
+.badge-name {
+
+    display:
+        block;
+
+    margin-top:
+        8px;
+
+    font-weight:
+        800;
+
+}
+
+
+/* =========================================================
+   CHAT BUBBLES
+   ========================================================= */
+
+.chat {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        14px;
+
+    margin:
+        28px auto;
+
+    max-width:
+        560px;
+
+}
+
+.chat-row {
+
+    display:
+        flex;
+
+    width:
+        100%;
+
+}
+
+.chat-row.me {
+
+    justify-content:
+        flex-end;
+
+}
+
+.chat-row.her {
+
+    justify-content:
+        flex-start;
+
+}
+
+.chat-bubble {
+
+    max-width:
+        82%;
+
+    padding:
+        13px 17px;
+
+    border-radius:
+        22px;
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.45;
+
+    box-shadow:
+        0 7px 20px
+        rgba(
+            100,
+            70,
+            90,
+            .07
+        );
+
+}
+
+.chat-row.me
+.chat-bubble {
+
+    background:
+        #f8bdd3;
+
+    border-bottom-right-radius:
+        7px;
+
+}
+
+.chat-row.her
+.chat-bubble {
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #efdae5;
+
+    border-bottom-left-radius:
+        7px;
+
+}
+
+.chat-name {
+
+    display:
+        block;
+
+    font-size:
+        .7rem;
+
+    font-weight:
+        800;
+
+    margin-bottom:
+        3px;
+
+    color:
+        var(--muted);
+
+}
+
+
+/* =========================================================
+   CHAT TYPING
+   ========================================================= */
+
+.typing-dots {
+
+    display:
+        inline-flex;
+
+    gap:
+        4px;
+
+}
+
+.typing-dots span {
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    background:
+        var(--pink-dark);
+
+    border-radius:
+        50%;
+
+    animation:
+        dot .9s
+        infinite;
+
+}
+
+.typing-dots span:nth-child(2) {
+
+    animation-delay:
+        .15s;
+
+}
+
+.typing-dots span:nth-child(3) {
+
+    animation-delay:
+        .3s;
+
+}
+
+@keyframes dot {
+
+    0%, 100% {
+        opacity: .3;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+
+}
+
+
+/* =========================================================
+   MEMORY LANE
+   ========================================================= */
+
+.memory-list {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+
+    margin:
+        28px 0;
+
+}
+
+.memory-item {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    padding:
+        15px 16px;
+
+    border:
+        1px solid
+        #eadce5;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .92
+        );
+
+    border-radius:
+        20px;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+
+}
+
+.memory-item:hover {
+
+    transform:
+        translateX(4px);
+
+}
+
+.memory-item.checked {
+
+    background:
+        #fff0f6;
+
+    border-color:
+        #efb8cf;
+
+}
+
+.memory-checkbox {
+
+    min-width:
+        30px;
+
+    height:
+        30px;
+
+    border-radius:
+        10px;
+
+    border:
+        2px solid
+        #ddb9ca;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    font-weight:
+        900;
+
+    color:
+        var(--rose);
+
+    background:
+        white;
+
+}
+
+.memory-item.checked
+.memory-checkbox {
+
+    background:
+        #f7a9c7;
+
+    border-color:
+        #f7a9c7;
+
+    color:
+        white;
+
+}
+
+.memory-icon {
+
+    font-size:
+        1.7rem;
+
+}
+
+.memory-text {
+
+    font-weight:
+        700;
+
+    flex:
+        1;
+
+}
+
+.memory-note {
+
+    font-size:
+        .78rem;
+
+    color:
+        var(--muted);
+
+}
+
+
+/* =========================================================
+   VIBRANCE
+   ========================================================= */
+
+.vibrance {
+
+    position:
+        relative;
+
+    padding:
+        30px 20px;
+
+    margin:
+        25px 0;
+
+    border-radius:
+        30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f7,
+            #eee8ff
+        );
+
+    border:
+        1px solid
+        #ead9e7;
+
+}
+
+.vibrance-year {
+
+    font-family:
+        "Patrick Hand",
+        cursive;
+
+    font-size:
+        4rem;
+
+    color:
+        var(--rose);
+
+    line-height:
+        .9;
+
+}
+
+.vibrance-title {
+
+    font-size:
+        1.8rem;
+
+    font-weight:
+        800;
+
+    margin-top:
+        8px;
+
+}
+
+
+/* =========================================================
+   SONG / YELLOW
+   ========================================================= */
+
+.song-screen {
+
+    transition:
+        background 1s ease;
+
+}
+
+.song-card {
+
+    padding:
+        24px;
+
+    border-radius:
+        28px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .75
+        );
+
+    border:
+        1px solid
+        rgba(
+            229,
+            195,
+            69,
+            .45
+        );
+
+}
+
+.song-note {
+
+    font-size:
+        4.5rem;
+
+    animation:
+        musicFloat 2s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes musicFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-9px)
+            rotate(5deg);
+    }
+
+}
+
+.song-title {
+
+    font-size:
+        clamp(
+            3rem,
+            13vw,
+            5rem
+        );
+
+    color:
+        #b99000;
+
+}
+
+.song-artist {
+
+    font-size:
+        1.2rem;
+
+    color:
+        #866d00;
+
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.stats {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        11px;
+
+    margin:
+        27px 0;
+
+    text-align:
+        left;
+
+}
+
+.stat {
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .88
+        );
+
+    border:
+        1px solid
+        #efdee7;
+
+    border-radius:
+        20px;
+
+    padding:
+        15px;
+
+    transition:
+        transform .2s ease;
+
+}
+
+.stat:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+.stat-label {
+
+    display:
+        block;
+
+    font-size:
+        .82rem;
+
+    color:
+        var(--muted);
+
+}
+
+.stat-value {
+
+    display:
+        block;
+
+    margin-top:
+        2px;
+
+    font-size:
+        1.25rem;
+
+    font-weight:
+        800;
+
+}
+
+
+/* =========================================================
+   MOMENTS / MEMORY CARDS
+   ========================================================= */
+
+.polaroids {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        18px;
+
+    margin:
+        28px 0;
+
+}
+
+.polaroid {
+
+    min-height:
+        145px;
+
+    background:
+        #fff;
+
+    border-radius:
+        8px;
+
+    padding:
+        17px 14px 21px;
+
+    box-shadow:
+        0 10px 22px
+        rgba(
+            82,
+            55,
+            70,
+            .1
+        );
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+}
+
+.polaroid:nth-child(1) {
+
+    transform:
+        rotate(-2deg);
+
+}
+
+.polaroid:nth-child(2) {
+
+    transform:
+        rotate(2deg);
+
+}
+
+.polaroid:nth-child(3) {
+
+    transform:
+        rotate(1deg);
+
+}
+
+.polaroid:nth-child(4) {
+
+    transform:
+        rotate(-3deg);
+
+}
+
+.polaroid:hover {
+
+    transform:
+        rotate(0)
+        scale(1.04);
+
+}
+
+.polaroid-icon {
+
+    font-size:
+        2.5rem;
+
+    margin-bottom:
+        8px;
+
+}
+
+.polaroid-text {
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================================
+   PROUD SLIDE
+   ========================================================= */
+
+.proud-card {
+
+    position:
+        relative;
+
+}
+
+.proud-list {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+
+    margin:
+        27px 0;
+
+}
+
+.proud-item {
+
+    text-align:
+        left;
+
+    padding:
+        15px 17px;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #eadce5;
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(
+            80,
+            50,
+            70,
+            .05
+        );
+
+}
+
+.proud-icon {
+
+    margin-right:
+        8px;
+
+}
+
+.proud-highlight {
+
+    font-family:
+        "Patrick Hand",
+        cursive;
+
+    font-size:
+        1.6rem;
+
+    color:
+        var(--rose);
+
+}
+
+
+/* =========================================================
+   SERIOUS
+   ========================================================= */
+
+.serious {
+
+    max-width:
+        570px;
+
+    margin:
+        25px auto;
+
+}
+
+.serious-line {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        seriousReveal
+        .8s forwards;
+
+    margin:
+        18px 0;
+
+}
+
+.serious-line:nth-child(1) {
+    animation-delay: .3s;
+}
+
+.serious-line:nth-child(2) {
+    animation-delay: 1.1s;
+}
+
+.serious-line:nth-child(3) {
+    animation-delay: 1.9s;
+}
+
+.serious-line:nth-child(4) {
+    animation-delay: 2.7s;
+}
+
+.serious-line:nth-child(5) {
+    animation-delay: 3.5s;
+}
+
+.serious-line:nth-child(6) {
+    animation-delay: 4.3s;
+}
+
+@keyframes seriousReveal {
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+.serious-highlight {
+
+    font-family:
+        "Patrick Hand",
+        cursive;
+
+    font-size:
+        clamp(
+            2rem,
+            7vw,
+            3rem
+        );
+
+    color:
+        var(--rose);
+
+}
+
+
+/* =========================================================
+   HEART GAME
+   ========================================================= */
+
+.heart-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        13px;
+
+    margin:
+        27px 0;
+
+}
+
+.heart-btn {
+
+    min-height:
+        75px;
+
+    border:
+        1px solid
+        #efdde7;
+
+    border-radius:
+        22px;
+
+    background:
+        white;
+
+    color:
+        var(--pink-dark);
+
+    font-size:
+        2rem;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+
+}
+
+.heart-btn:hover {
+
+    transform:
+        translateY(-4px)
+        rotate(-4deg);
+
+}
+
+.heart-btn.found {
+
+    background:
+        #fff0f6;
+
+    animation:
+        heartPop .4s ease;
+
+}
+
+@keyframes heartPop {
+
+    50% {
+
+        transform:
+            scale(1.2);
+
+    }
+
+}
+
+.reason-display {
+
+    min-height:
+        75px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-family:
+        "Patrick Hand",
+        cursive;
+
+    font-size:
+        1.5rem;
+
+    color:
+        var(--rose);
+
+}
+
+
+/* =========================================================
+   NO BUTTON GAME
+   ========================================================= */
+
+.no-game {
+
+    margin-top:
+        30px;
+
+}
+
+.no-zone {
+
+    position:
+        relative;
+
+    height:
+        210px;
+
+    margin-top:
+        10px;
+
+}
+
+.no-button {
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    top:
+        70%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    transition:
+        left .22s ease,
+        top .22s ease,
+        transform .22s ease;
+
+}
+
+
+/* =========================================================
+   CONTRACT
+   ========================================================= */
+
+.contract {
+
+    margin-top:
+        25px;
+
+    padding:
+        25px;
+
+    background:
+        linear-gradient(
+            rgba(
+                255,
+                255,
+                255,
+                .92
+            ),
+            rgba(
+                255,
+                255,
+                255,
+                .92
+            )
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 28px,
+            #eedee5 29px
+        );
+
+    border:
+        2px dashed
+        #d9b7c8;
+
+    border-radius:
+        22px;
+
+    text-align:
+        left;
+
+}
+
+.contract-title {
+
+    text-align:
+        center;
+
+    font-family:
+        "Patrick Hand",
+        cursive;
+
+    font-size:
+        1.8rem;
+
+    margin-bottom:
+        18px;
+
+}
+
+.contract ol {
+
+    padding-left:
+        25px;
+
+}
+
+.contract li {
+
+    margin:
+        11px 0;
+
+    line-height:
+        1.45;
+
+}
+
+.contract-footer {
+
+    text-align:
+        center;
+
+    margin-top:
+        22px;
+
+}
+
+
+/* =========================================================
+   FINAL CARD
+   ========================================================= */
+
+.final-card {
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ffe8f2,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #eee9ff,
+            transparent 35%
+        ),
+        rgba(
+            255,
+            255,
+            255,
+            .88
+        );
+
+}
+
+.final-flower {
+
+    font-size:
+        4rem;
+
+    animation:
+        bloom 2.5s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes bloom {
+
+    0%,100% {
+
+        transform:
+            scale(.95)
+            rotate(-3deg);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.08)
+            rotate(3deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   SAFE SPACE
+   ========================================================= */
+
+.safe-space {
+
+    margin:
+        28px auto;
+
+    max-width:
+        560px;
+
+    padding:
+        27px 20px;
+
+    border-radius:
+        28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1f6,
+            #f1ecff
+        );
+
+    border:
+        1px solid
+        #eadcea;
+
+}
+
+.safe-space-title {
+
+    font-family:
+        "Patrick Hand",
+        cursive;
+
+    color:
+        var(--rose);
+
+    font-size:
+        2.6rem;
+
+}
+
+
+/* =========================================================
+   HUG
+   ========================================================= */
+
+.hug-stage {
+
+    margin:
+        25px 0;
+
+}
+
+.hug-characters {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    font-size:
+        5rem;
+
+}
+
+.character-left {
+
+    animation:
+        walkLeft
+        1.2s
+        ease
+        forwards;
+
+}
+
+.character-right {
+
+    animation:
+        walkRight
+        1.2s
+        ease
+        forwards;
+
+}
+
+@keyframes walkLeft {
+
+    from {
+
+        transform:
+            translateX(-100px);
+
+    }
+
+    to {
+
+        transform:
+            translateX(5px);
+
+    }
+
+}
+
+@keyframes walkRight {
+
+    from {
+
+        transform:
+            translateX(100px);
+
+    }
+
+    to {
+
+        transform:
+            translateX(-5px);
+
+    }
+
+}
+
+.hug-title {
+
+    animation:
+        hugPulse
+        1.5s
+        ease-in-out
+        infinite alternate;
+
+}
+
+@keyframes hugPulse {
+
+    to {
+
+        transform:
+            scale(1.04);
+
+    }
+
+}
+
+
+/* =========================================================
+   FLOWER
+   ========================================================= */
+
+.flower-button {
+
+    border:
+        none;
+
+    background:
+        transparent;
+
+    font-size:
+        4rem;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .2s ease;
+
+}
+
+.flower-button:hover {
+
+    transform:
+        scale(1.15)
+        rotate(8deg);
+
+}
+
+
+/* =========================================================
+   SECRET OBJECTS
+   ========================================================= */
+
+.secret-object {
+
+    position:
+        fixed;
+
+    z-index:
+        4;
+
+    cursor:
+        pointer;
+
+    user-select:
+        none;
+
+    transition:
+        transform .2s ease;
+
+}
+
+.secret-object:hover {
+
+    transform:
+        scale(1.2);
+
+}
+
+.star-secret {
+
+    top:
+        5%;
+
+    left:
+        45%;
+
+}
+
+.flower-secret {
+
+    bottom:
+        6%;
+
+    right:
+        5%;
+
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+
+    position:
+        fixed;
+
+    z-index:
+        100;
+
+    left:
+        50%;
+
+    bottom:
+        25px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        var(--brown);
+
+    color:
+        white;
+
+    padding:
+        12px 19px;
+
+    border-radius:
+        999px;
+
+    font-size:
+        .9rem;
+
+    box-shadow:
+        var(--shadow);
+
+    animation:
+        toastIn .25s ease;
+
+    white-space:
+        nowrap;
+
+}
+
+@keyframes toastIn {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translate(
+                -50%,
+                15px
+            );
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translate(
+                -50%,
+                0
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   CONFETTI
+   ========================================================= */
+
+.confetti {
+
+    position:
+        fixed;
+
+    pointer-events:
+        none;
+
+    z-index:
+        999;
+
+    font-size:
+        1.2rem;
+
+    animation:
+        confettiFall
+        1.5s
+        ease-out
+        forwards;
+
+}
+
+@keyframes confettiFall {
+
+    0% {
+
+        opacity:
+            1;
+
+        transform:
+            translate(
+                0,
+                0
+            )
+            rotate(0);
+
+    }
+
+    100% {
+
+        opacity:
+            0;
+
+        transform:
+            translate(
+                calc(
+                    (var(--x) - 50)
+                    * 1vw
+                ),
+                90vh
+            )
+            rotate(600deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   PETALS
+   ========================================================= */
+
+.petal {
+
+    position:
+        fixed;
+
+    pointer-events:
+        none;
+
+    z-index:
+        50;
+
+    animation:
+        petalFall
+        2.5s
+        ease-in
+        forwards;
+
+}
+
+@keyframes petalFall {
+
+    from {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(-20px)
+            rotate(0);
+
+    }
+
+    to {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(80vh)
+            translateX(
+                calc(
+                    (var(--drift) - 50)
+                    * 1vw
+                )
+            )
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   SCREEN ANIMATION
+   ========================================================= */
+
+.animate-in {
+
+    animation:
+        screenIn
+        .6s
+        cubic-bezier(
+            .2,
+            .8,
+            .2,
+            1
+        )
+        both;
+
+}
+
+@keyframes screenIn {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(20px)
+            scale(.97);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   SOUND
+   ========================================================= */
+
+.sound-toggle {
+
+    position:
+        fixed;
+
+    top:
+        16px;
+
+    right:
+        16px;
+
+    z-index:
+        20;
+
+    min-height:
+        42px;
+
+    padding:
+        8px 13px;
+
+    border:
+        1px solid
+        #eadce5;
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .85
+        );
+
+    backdrop-filter:
+        blur(10px);
+
+    color:
+        var(--brown);
+
+    cursor:
+        pointer;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .screen {
+
+        padding:
+            15px 10px;
+
+        align-items:
+            flex-start;
+
+    }
+
+    .container {
+
+        margin-top:
+            25px;
+
+        margin-bottom:
+            25px;
+
+    }
+
+    .game-card {
+
+        border-radius:
+            29px;
+
+        padding:
+            28px 15px;
+
+    }
+
+    .sound-toggle {
+
+        top:
+            10px;
+
+        right:
+            10px;
+
+        font-size:
+            .72rem;
+
+        min-height:
+            36px;
+
+        padding:
+            7px 10px;
+
+    }
+
+    .stats {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .heart-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .polaroids {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap:
+            11px;
+
+    }
+
+    .polaroid {
+
+        min-height:
+            130px;
+
+        font-size:
+            .9rem;
+
+    }
+
+    .badge {
+
+        width:
+            125px;
+
+    }
+
+    .chat-bubble {
+
+        max-width:
+            88%;
+
+        font-size:
+            .95rem;
+
+    }
+
+    .memory-item {
+
+        padding:
+            13px;
+
+    }
+
+    .memory-note {
+
+        display:
+            none;
+
+    }
+
+    .hug-characters {
+
+        font-size:
+            4rem;
+
+    }
+
+    .toast {
+
+        max-width:
+            90%;
+
+        white-space:
+            normal;
+
+        text-align:
+            center;
+
+        bottom:
+            18px;
+
+    }
+
+    .no-zone {
+
+        height:
+            190px;
+
+    }
+
+    .vibrance {
+
+        padding:
+            25px 15px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    h1 {
+
+        font-size:
+            3rem;
+
+    }
+
+    h2 {
+
+        font-size:
+            2.25rem;
+
+    }
+
+    .game-card {
+
+        padding:
+            25px 13px;
+
+    }
+
+    .polaroids {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .badge {
+
+        width:
+            115px;
+
+    }
+
+    .hug-characters {
+
+        font-size:
+            3.5rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            .001ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            .001ms !important;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div id="app">
+
+    <!-- SOUND -->
+
+    <button
+        class="sound-toggle"
+        id="soundToggle">
+
+        🎵 soundtrack: OFF
+
+    </button>
+
+
+    <!-- BACKGROUND -->
+
+    <div class="bg-decoration decor-1">
+        ✦
+    </div>
+
+    <div class="bg-decoration decor-2">
+        ♡
+    </div>
+
+    <div class="bg-decoration decor-3">
+        🌷
+    </div>
+
+    <div class="bg-decoration decor-4">
+        ✦
+    </div>
+
+
+    <!-- SECRET OBJECTS -->
+
+    <div
+        class="secret-object star-secret"
+        data-secret="You found a friendship star ⭐">
+
+        ⭐
+
+    </div>
+
+    <div
+        class="secret-object flower-secret"
+        data-secret="This flower is for surviving my nonsense 🌷">
+
+        🌷
+
+    </div>
+
+
+    <!-- SCREEN -->
+
+    <section class="screen">
+
+        <div class="container">
+
+            <div
+                class="progress-wrap"
+                id="progressWrap"
+                style="display:none">
+
+                <span
+                    class="progress-label"
+                    id="progressLabel">
+
+                    LEVEL 0
+
+                </span>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        id="progressBar">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="game-card animate-in"
+                id="gameCard">
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   YAZHINI.EXE
+   ========================================================= */
+
+(() => {
+
+"use strict";
+
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const gameCard =
+    document.getElementById(
+        "gameCard"
+    );
+
+const progressWrap =
+    document.getElementById(
+        "progressWrap"
+    );
+
+const progressBar =
+    document.getElementById(
+        "progressBar"
+    );
+
+const progressLabel =
+    document.getElementById(
+        "progressLabel"
+    );
+
+const soundToggle =
+    document.getElementById(
+        "soundToggle"
+    );
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let currentLevel = 0;
+
+let secretsFound = 0;
+
+let heartsFound = 0;
+
+let memoriesFound = 0;
+
+let soundEnabled = false;
+
+let audioContext = null;
+
+
+/*
+   There are 14 actual levels.
+*/
+
+const TOTAL_LEVELS = 14;
+
+
+/* =========================================================
+   SOUND
+   ========================================================= */
+
+function playTone(
+    frequency = 500,
+    duration = .08,
+    type = "sine"
+) {
+
+    if (!soundEnabled)
+        return;
+
+    try {
+
+        if (!audioContext) {
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+        }
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+        oscillator.type =
+            type;
+
+        oscillator.frequency.value =
+            frequency;
+
+        gain.gain.setValueAtTime(
+            .0001,
+            audioContext.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .06,
+            audioContext.currentTime + .01
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            audioContext.currentTime + duration
+        );
+
+        oscillator.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+        oscillator.start();
+
+        oscillator.stop(
+            audioContext.currentTime +
+            duration
+        );
+
+    } catch (error) {
+
+        /* optional */
+
+    }
+
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+function showToast(message) {
+
+    const oldToast =
+        document.querySelector(
+            ".toast"
+        );
+
+    if (oldToast)
+        oldToast.remove();
+
+    const toast =
+        document.createElement(
+            "div"
+        );
+
+    toast.className =
+        "toast";
+
+    toast.textContent =
+        message;
+
+    document.body.appendChild(
+        toast
+    );
+
+    setTimeout(() => {
+
+        toast.remove();
+
+    }, 2300);
+
+}
+
+
+/* =========================================================
+   CONFETTI
+   ========================================================= */
+
+function createConfetti(
+    amount = 45
+) {
+
+    const pieces = [
+        "💗",
+        "🌸",
+        "⭐",
+        "🎉",
+        "🌷",
+        "♡",
+        "✦"
+    ];
+
+    for (
+        let i = 0;
+        i < amount;
+        i++
+    ) {
+
+        const piece =
+            document.createElement(
+                "div"
+            );
+
+        piece.className =
+            "confetti";
+
+        piece.textContent =
+            pieces[
+                Math.floor(
+                    Math.random() *
+                    pieces.length
+                )
+            ];
+
+        piece.style.left =
+            `${Math.random() * 100}%`;
+
+        piece.style.top =
+            `${30 + Math.random() * 15}%`;
+
+        piece.style.setProperty(
+            "--x",
+            Math.random() * 100
+        );
+
+        piece.style.animationDelay =
+            `${Math.random() * .3}s`;
+
+        document.body.appendChild(
+            piece
+        );
+
+        setTimeout(
+            () => piece.remove(),
+            1900
+        );
+
+    }
+
+    playTone(700, .08);
+
+    setTimeout(
+        () => playTone(900, .08),
+        100
+    );
+
+}
+
+
+/* =========================================================
+   PETALS
+   ========================================================= */
+
+function createPetals(
+    amount = 14
+) {
+
+    for (
+        let i = 0;
+        i < amount;
+        i++
+    ) {
+
+        const petal =
+            document.createElement(
+                "div"
+            );
+
+        petal.className =
+            "petal";
+
+        petal.textContent =
+            [
+                "🌸",
+                "🌷",
+                "♡"
+            ][i % 3];
+
+        petal.style.left =
+            `${Math.random() * 100}%`;
+
+        petal.style.top =
+            `${-10 - Math.random() * 10}px`;
+
+        petal.style.setProperty(
+            "--drift",
+            Math.random() * 100
+        );
+
+        petal.style.animationDelay =
+            `${Math.random() * .7}s`;
+
+        document.body.appendChild(
+            petal
+        );
+
+        setTimeout(
+            () => petal.remove(),
+            3500
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+function updateProgress() {
+
+    if (
+        currentLevel === 0
+    ) {
+
+        progressWrap.style.display =
+            "none";
+
+        return;
+
+    }
+
+    progressWrap.style.display =
+        "flex";
+
+    const percent =
+        Math.min(
+            100,
+            (
+                (
+                    currentLevel - 1
+                ) /
+                (
+                    TOTAL_LEVELS - 1
+                )
+            ) * 100
+        );
+
+    progressBar.style.width =
+        `${percent}%`;
+
+    progressLabel.textContent =
+        currentLevel === TOTAL_LEVELS
+            ? "FINAL"
+            : `LEVEL ${currentLevel}`;
+
+}
+
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+function render(content) {
+
+    gameCard.classList.remove(
+        "animate-in"
+    );
+
+    void gameCard.offsetWidth;
+
+    gameCard.innerHTML =
+        content;
+
+    gameCard.classList.add(
+        "animate-in"
+    );
+
+    updateProgress();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    bindButtons();
+
+}
+
+
+/* =========================================================
+   NEXT
+   ========================================================= */
+
+function nextLevel() {
+
+    if (
+        currentLevel <
+        TOTAL_LEVELS
+    ) {
+
+        currentLevel++;
+
+        playTone(650, .06);
+
+        renderLevel(
+            currentLevel
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LEVEL 0
+   ========================================================= */
+
+function levelOpening() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        💌 CLASSIFIED FRIENDSHIP PROJECT
+    </span>
+
+    <div style="height:22px"></div>
+
+    <h1>
+        Heyyy<br>
+        Yazhiniii...
+    </h1>
+
+    <div class="opening-character">
+        🐻
+    </div>
+
+    <p>
+        Yes, <b>YOU.</b> 👀
+    </p>
+
+    <p
+        class="script"
+        style="
+            font-size:1.65rem;
+            margin-top:8px;
+        ">
+
+        I made you something.
+
+    </p>
+
+    <div class="actions">
+
+        <button
+            class="btn big"
+            data-action="open">
+
+            OPEN YOUR SURPRISE 💌
+
+        </button>
+
+    </div>
+
+    <p
+        class="small"
+        style="margin-top:22px">
+
+        ⚠️ warning:
+        contains nonsense,
+        friendship,
+        emotional damage
+        & one extremely annoying person
+
+    </p>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 1
+   THE PRESIDENT / VP
+   ========================================================= */
+
+function levelBeginning() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 1 / THE BEGINNING 👑
+    </span>
+
+    <div style="height:15px"></div>
+
+    <h2>
+        The Beginning 👑
+    </h2>
+
+    <p>
+        Once upon a time...
+    </p>
+
+    <div class="badges">
+
+        <div
+            class="badge"
+            data-secret="
+                MADAM PRESIDENT DETECTED 👑
+            ">
+
+            <div class="badge-icon">
+                👑
+            </div>
+
+            <span class="badge-name">
+                PRESIDENT
+            </span>
+
+        </div>
+
+        <div
+            class="badge"
+            data-secret="
+                Vice President reporting
+                for emotional support 🫡
+            ">
+
+            <div class="badge-icon">
+                🤝
+            </div>
+
+            <span class="badge-name">
+                VICE PRESIDENT
+            </span>
+
+        </div>
+
+    </div>
+
+    <p>
+        There was a Club President.
+    </p>
+
+    <p>
+        And a Vice President.
+    </p>
+
+    <p>
+        They were just supposed
+        to run a club together.
+    </p>
+
+    <div style="margin:20px 0">
+
+        <h2>
+            Oops.
+        </h2>
+
+    </div>
+
+    <p>
+        Somewhere along the way,
+        they accidentally became
+        best friends.
+    </p>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="next">
+
+            NEXT CHAOS →
+
+        </button>
+
+    </div>
+
+    <p
+        class="small"
+        style="margin-top:24px">
+
+        🏆 Achievement Unlocked
+
+        <br>
+
+        <b>Found your person.</b>
+
+        <br><br>
+
+        Honestly,
+        the club was just an excuse.
+
+    </p>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 2
+   FIRST TEXT
+   ========================================================= */
+
+function levelFirstText() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 2 / MESSAGE #001 💬
+    </span>
+
+    <div style="height:15px"></div>
+
+    <h2>
+        Our First Text.
+    </h2>
+
+    <p class="small">
+        The conversation that started
+        something very cute. 🥺
+    </p>
+
+    <div class="chat">
+
+        <div class="chat-row me">
+
+            <div class="chat-bubble">
+
+                <span class="chat-name">
+                    Jerome
+                </span>
+
+                parakkurum 🚗
+
+            </div>
+
+        </div>
+
+        <div class="chat-row her">
+
+            <div class="chat-bubble">
+
+                <span class="chat-name">
+                    Yazhini
+                </span>
+
+                Eppadi car-la parappiya? 🙂
+
+            </div>
+
+        </div>
+
+        <div
+            class="chat-row her"
+            style="
+                animation:
+                    screenIn
+                    .7s
+                    1s
+                    both;
+            ">
+
+            <div class="chat-bubble"
+                 style="
+                     font-size:2rem;
+                 ">
+
+                🚀
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p
+        class="script"
+        style="
+            font-size:1.55rem;
+            margin-top:18px;
+        ">
+
+        And somehow...
+        that tiny conversation
+        became a friendship.
+
+    </p>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="next">
+
+            AND THEN WE BECAME FRIENDS 🥹 →
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 3
+   FRIENDSHIP ANALYTICS
+   ========================================================= */
+
+function levelStats() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 3 / FRIENDSHIP ANALYTICS™ 📊
+    </span>
+
+    <div style="height:14px"></div>
+
+    <h2>
+        YAZHINI + ME
+    </h2>
+
+    <p
+        class="script"
+        style="
+            font-size:1.5rem;
+        ">
+
+        Friendship Analytics™
+
+    </p>
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <span class="stat-label">
+                Inside jokes
+            </span>
+
+            <span class="stat-value">
+                ∞
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <span class="stat-label">
+                Random conversations
+            </span>
+
+            <span class="stat-value">
+                ∞∞∞
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <span class="stat-label">
+                Times we've annoyed each other
+            </span>
+
+            <span class="stat-value">
+                999999+
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <span class="stat-label">
+                Emotional support
+            </span>
+
+            <span class="stat-value">
+                100%
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <span class="stat-label">
+                Ability to make me smile
+            </span>
+
+            <span class="stat-value">
+                dangerously high
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <span class="stat-label">
+                Best-friend compatibility
+            </span>
+
+            <span class="stat-value">
+                ERROR — TOO HIGH
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <span class="stat-label">
+                Chance of getting rid of each other
+            </span>
+
+            <span class="stat-value">
+                0.0000001%
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <span class="stat-label">
+                "I should tell her this"
+            </span>
+
+            <span class="stat-value">
+                also ∞
+            </span>
+
+        </div>
+
+    </div>
+
+    <h3>
+        SYSTEM VERDICT
+    </h3>
+
+    <p>
+        Yep.
+        <br>
+        <b>You're stuck with me.</b>
+    </p>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="next">
+
+            CONTINUE UNFORTUNATELY →
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 4
+   MEMORY LANE
+   ========================================================= */
+
+function levelMemoryLane() {
+
+memoriesFound = 0;
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 4 / MEMORY LANE 📸
+    </span>
+
+    <div style="height:14px"></div>
+
+    <h2>
+        Memory Lane
+    </h2>
+
+    <p>
+        Five little checkpoints.
+        <br>
+        Five little pieces of us.
+    </p>
+
+    <div class="memory-list">
+
+        <div
+            class="memory-item"
+            data-memory>
+
+            <div class="memory-checkbox">
+                1
+            </div>
+
+            <div class="memory-icon">
+                🏢
+            </div>
+
+            <div class="memory-text">
+                Daisy Ma'am's cabin
+                <div class="memory-note">
+                    unlocked memory 📍
+                </div>
+            </div>
+
+        </div>
+
+
+        <div
+            class="memory-item"
+            data-memory>
+
+            <div class="memory-checkbox">
+                2
+            </div>
+
+            <div class="memory-icon">
+                🥤
+            </div>
+
+            <div class="memory-text">
+                North Square Horlicks
+                <div class="memory-note">
+                    unlocked memory 📍
+                </div>
+            </div>
+
+        </div>
+
+
+        <div
+            class="memory-item"
+            data-memory>
+
+            <div class="memory-checkbox">
+                3
+            </div>
+
+            <div class="memory-icon">
+                🛵
+            </div>
+
+            <div class="memory-text">
+                Blinkit orders
+                <div class="memory-note">
+                    emergency supplies 📦
+                </div>
+            </div>
+
+        </div>
+
+
+        <div
+            class="memory-item"
+            data-memory>
+
+            <div class="memory-checkbox">
+                4
+            </div>
+
+            <div class="memory-icon">
+                🥤
+            </div>
+
+            <div class="memory-text">
+                Gazebo Boost
+                <div class="memory-note">
+                    very important research
+                </div>
+            </div>
+
+        </div>
+
+
+        <div
+            class="memory-item"
+            data-memory>
+
+            <div class="memory-checkbox">
+                5
+            </div>
+
+            <div class="memory-icon">
+                🍽️
+            </div>
+
+            <div class="memory-text">
+                Kothu Parotta
+                <div class="memory-note">
+                    obviously.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div
+        id="memoryProgress"
+        class="small">
+
+        Memories unlocked:
+        <b>0 / 5</b>
+
+    </div>
+
+    <div
+        id="memoryComplete"
+        style="
+            display:none;
+            margin-top:22px;
+        ">
+
+        <p
+            class="script"
+            style="
+                font-size:1.65rem;
+                color:var(--rose);
+            ">
+
+            See?
+            <br>
+            We actually have
+            a whole little world
+            of memories already. 🥺
+
+        </p>
+
+        <div class="actions">
+
+            <button
+                class="btn"
+                data-action="next">
+
+                WALK A LITTLE FURTHER → 🌷
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 5
+   VIBRANCE
+   ========================================================= */
+
+function levelVibrance() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 5 / THE TURNING POINT ✨
+    </span>
+
+    <div style="height:15px"></div>
+
+    <h2>
+        And Then...
+    </h2>
+
+    <div class="vibrance">
+
+        <div class="vibrance-year">
+            2026
+        </div>
+
+        <div class="vibrance-title">
+            VIBRANCE
+        </div>
+
+        <div
+            style="
+                font-size:3rem;
+                margin:15px 0;
+            ">
+
+            ✨ 💗 ✨
+
+        </div>
+
+        <p>
+            This was the point where
+            <b>Jerome + Yazhini</b>
+            became...
+        </p>
+
+        <h2
+            style="
+                color:var(--rose);
+                margin-top:10px;
+            ">
+
+            BESTEST FRIENDS.
+
+        </h2>
+
+    </div>
+
+    <p>
+        Not just club people.
+    </p>
+
+    <p>
+        Not just people who happened
+        to talk a lot.
+    </p>
+
+    <p>
+        Somehow...
+    </p>
+
+    <p
+        class="script"
+        style="
+            font-size:1.65rem;
+            color:var(--rose);
+            margin-top:15px;
+        ">
+
+        we became <b>us.</b>
+
+    </p>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="next">
+
+            THAT'S CUTE. CONTINUE 🥺 →
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 6
+   YELLOW / COLDPLAY
+   ========================================================= */
+
+function levelYellow() {
+
+document.body.classList.add(
+    "yellow-mode"
+);
+
+return `
+
+<div class="center song-screen">
+
+    <span class="pill">
+        LEVEL 6 / OUR SONG 💛
+    </span>
+
+    <div style="height:18px"></div>
+
+    <div class="song-card">
+
+        <div class="song-note">
+            🎵
+        </div>
+
+        <p>
+            Some memories have places.
+        </p>
+
+        <p>
+            Some have people.
+        </p>
+
+        <p>
+            And some...
+        </p>
+
+        <p>
+            have a song.
+        </p>
+
+        <div style="height:15px"></div>
+
+        <h1 class="song-title">
+            Yellow
+        </h1>
+
+        <p class="song-artist">
+            Coldplay 💛
+        </p>
+
+        <div style="height:18px"></div>
+
+        <p>
+            Our song.
+        </p>
+
+        <p
+            class="script"
+            style="
+                font-size:1.55rem;
+                margin-top:12px;
+            ">
+
+            So obviously...
+            this entire screen
+            needed to turn yellow.
+
+        </p>
+
+    </div>
+
+    <p
+        style="
+            margin-top:25px;
+        ">
+
+        💛 yellow mode activated 💛
+
+    </p>
+
+    <div class="actions">
+
+        <button
+            class="btn yellow"
+            data-action="next">
+
+            KEEP THIS MEMORY 💛 →
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 7
+   PROUD OF YOU
+   ========================================================= */
+
+function levelProud() {
+
+return `
+
+<div class="center proud-card">
+
+    <span class="pill">
+        LEVEL 7 / PROUD MODE 🥹
+    </span>
+
+    <div style="height:15px"></div>
+
+    <h2>
+        I'm Very Proud of You.
+    </h2>
+
+    <p
+        class="script"
+        style="
+            font-size:1.55rem;
+            margin-top:12px;
+        ">
+
+        Seriously.
+
+    </p>
+
+    <div class="proud-list">
+
+        <div class="proud-item">
+
+            👑
+
+            <b>
+                You have been the President
+                of one of the top clubs.
+            </b>
+
+        </div>
+
+        <div class="proud-item">
+
+            🎨
+
+            <b>
+                You have been the organizer
+                of the Design Committee of Techno.
+            </b>
+
+        </div>
+
+        <div class="proud-item">
+
+            📋
+
+            <b>
+                You've been part of various
+                committees and somehow
+                handled all of it.
+            </b>
+
+        </div>
+
+        <div class="proud-item">
+
+            🎤
+
+            <b>
+                You're going to be the
+                coordinator of the conference.
+            </b>
+
+        </div>
+
+        <div class="proud-item">
+
+            🏫
+
+            <b>
+                You've been your school's
+                very enthusiastic kid.
+            </b>
+
+        </div>
+
+    </div>
+
+    <div
+        style="
+            margin-top:25px;
+        ">
+
+        <p>
+            But honestly...
+        </p>
+
+        <p
+            class="proud-highlight"
+            style="
+                margin-top:10px;
+            ">
+
+            Your best achievement of all?
+
+        </p>
+
+        <h2
+            style="
+                color:var(--rose);
+                margin-top:8px;
+            ">
+
+            Becoming my best friend. 💗
+
+        </h2>
+
+    </div>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="next">
+
+            OKAY I'M EMOTIONAL NOW 😭 →
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 8
+   THINGS I DON'T SAY ENOUGH
+   ========================================================= */
+
+function levelThings() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 8 / LITTLE THINGS 🌷
+    </span>
+
+    <div style="height:14px"></div>
+
+    <h2>
+        Things I Don't Say Enough
+    </h2>
+
+    <p class="small">
+        Tap the little memories.
+    </p>
+
+    <div class="polaroids">
+
+        <div
+            class="polaroid"
+            data-secret="
+                You make ordinary days fun. 💗
+            ">
+
+            <div class="polaroid-icon">
+                💬
+            </div>
+
+            <div class="polaroid-text">
+                The random conversations.
+            </div>
+
+        </div>
+
+        <div
+            class="polaroid"
+            data-secret="
+                The stupid jokes. 😂
+            ">
+
+            <div class="polaroid-icon">
+                😂
+            </div>
+
+            <div class="polaroid-text">
+                The stupid jokes.
+            </div>
+
+        </div>
+
+        <div
+            class="polaroid"
+            data-secret="
+                The moments where
+                words weren't even needed. 🫂
+            ">
+
+            <div class="polaroid-icon">
+                🫂
+            </div>
+
+            <div class="polaroid-text">
+                The quiet moments.
+            </div>
+
+        </div>
+
+        <div
+            class="polaroid"
+            data-secret="
+                The absolute nonsense
+                we somehow consider normal. 😭
+            ">
+
+            <div class="polaroid-icon">
+                😭
+            </div>
+
+            <div class="polaroid-text">
+                The absolute nonsense.
+            </div>
+
+        </div>
+
+    </div>
+
+    <p>
+        Funny how the little things
+        become the things you remember
+        the most.
+    </p>
+
+    <p
+        class="script"
+        style="
+            font-size:1.55rem;
+            margin-top:13px;
+        ">
+
+        And somehow, a lot of my
+        favorite little things
+        have you in them.
+
+    </p>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="next">
+
+            KEEP GOING 🌷
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 9
+   SERIOUS / SORRY
+   ========================================================= */
+
+function levelSerious() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 9 / OKAY... ONE SERIOUS THING 🌙
+    </span>
+
+    <div style="height:15px"></div>
+
+    <h2>
+        Okay...
+        <br>
+        one tiny serious thing.
+    </h2>
+
+    <div class="serious">
+
+        <p class="serious-line">
+            I know things felt a little
+            weird for a while.
+        </p>
+
+        <p class="serious-line">
+            And if I ever made things awkward...
+        </p>
+
+        <p class="serious-line">
+            or made our friendship feel
+            heavier than it should...
+        </p>
+
+        <p class="serious-line">
+
+            <b>
+                I'm genuinely sorry.
+            </b>
+
+        </p>
+
+        <p class="serious-line">
+            I never wanted to make
+            you uncomfortable.
+        </p>
+
+        <p class="serious-line">
+            Because honestly...
+        </p>
+
+        <p
+            class="serious-line serious-highlight"
+            style="
+                animation-delay:5.1s;
+            ">
+
+            I'd rather have you in my life
+            than have everything go perfectly.
+
+        </p>
+
+        <p
+            class="serious-line"
+            style="
+                animation-delay:6.2s;
+            ">
+
+            You're way too important to me.
+
+        </p>
+
+    </div>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="next">
+
+            OKAY ENOUGH EMOTIONS 😭 →
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 10
+   HEART GAME
+   ========================================================= */
+
+function levelWhy() {
+
+heartsFound = 0;
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 10 / BESTEST FRIEND TEST 💗
+    </span>
+
+    <div style="height:15px"></div>
+
+    <h2>
+        Why You're My Bestest Friend
+    </h2>
+
+    <p>
+        There are six tiny secrets.
+        Find them all.
+    </p>
+
+    <div class="heart-grid">
+
+        <button
+            class="heart-btn"
+            data-reason="
+                You make ordinary days fun. ❤️
+            ">
+
+            ♡
+
+        </button>
+
+        <button
+            class="heart-btn"
+            data-reason="
+                I can be completely stupid
+                around you. 😂
+            ">
+
+            ♡
+
+        </button>
+
+        <button
+            class="heart-btn"
+            data-reason="
+                Somehow you understand me
+                even when I'm impossible. 😭
+            ">
+
+            ♡
+
+        </button>
+
+        <button
+            class="heart-btn"
+            data-reason="
+                I trust you. 🫂
+            ">
+
+            ♡
+
+        </button>
+
+        <button
+            class="heart-btn"
+            data-reason="
+                Your presence just makes
+                things feel a little better. 🌷
+            ">
+
+            ♡
+
+        </button>
+
+        <button
+            class="heart-btn"
+            data-reason="
+                Because you're YOU. 💗
+            ">
+
+            ♡
+
+        </button>
+
+    </div>
+
+    <div
+        class="reason-display"
+        id="reasonDisplay">
+
+        Tap a heart 👀
+
+    </div>
+
+    <div
+        id="finalHeart"
+        style="display:none">
+
+        <p
+            class="script"
+            style="
+                font-size:2rem;
+                color:var(--rose);
+            ">
+
+            And because somewhere
+            along the way...
+
+            <br>
+
+            <b>
+                you became home.
+            </b>
+
+        </p>
+
+        <div class="actions">
+
+            <button
+                class="btn"
+                data-action="next">
+
+                UNLOCKED 🔓
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 11
+   SAFE SPACE
+   ========================================================= */
+
+function levelSafeSpace() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 11 / SOMETHING REAL 🌙
+    </span>
+
+    <div style="height:15px"></div>
+
+    <h2>
+        Maybe...
+    </h2>
+
+    <div class="safe-space">
+
+        <div class="safe-space-title">
+            I would call it a safe space.
+        </div>
+
+        <div style="height:15px"></div>
+
+        <p>
+            A place where we can just be ourselves.
+        </p>
+
+        <p>
+            Where we can rant.
+        </p>
+
+        <p>
+            Be stupid.
+        </p>
+
+        <p>
+            Be quiet.
+        </p>
+
+        <p>
+            Talk about absolutely nothing.
+        </p>
+
+        <p>
+            Or talk about everything.
+        </p>
+
+        <div style="height:15px"></div>
+
+        <p
+            class="script"
+            style="
+                font-size:1.5rem;
+                color:var(--rose);
+            ">
+
+            And I hope you also
+            feel that way.
+
+        </p>
+
+        <div style="height:10px"></div>
+
+        <p>
+            I hope this little thing
+            between us continues.
+        </p>
+
+        <p>
+            Just the way it is.
+        </p>
+
+        <p>
+            Comfortable.
+            Stupid.
+            Honest.
+            Ours.
+        </p>
+
+    </div>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="next">
+
+            I LIKE OUR LITTLE SPACE 🥺 →
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 12
+   VERY IMPORTANT QUESTION
+   ========================================================= */
+
+function levelQuestion() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 12 / VERY IMPORTANT QUESTION 🚨
+    </span>
+
+    <div style="height:15px"></div>
+
+    <h2>
+        IMPORTANT QUESTION
+    </h2>
+
+    <p
+        style="
+            font-size:1.3rem;
+            margin-top:15px;
+        ">
+
+        Are you planning to stay
+        in my life?
+
+    </p>
+
+    <p class="small">
+        Choose wisely.
+        The system is watching. 👀
+    </p>
+
+    <div class="actions">
+
+        <button
+            class="btn big"
+            data-action="yes">
+
+            OBVIOUSLY 🙄
+
+        </button>
+
+    </div>
+
+    <div class="no-game">
+
+        <div
+            class="no-zone"
+            id="noZone">
+
+            <button
+                class="btn secondary no-button"
+                id="noButton"
+                type="button">
+
+                NO 😈
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <p
+        id="noMessage"
+        class="script"
+        style="
+            min-height:32px;
+            color:var(--rose);
+        ">
+
+    </p>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 13
+   STAY
+   ========================================================= */
+
+function levelStay() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        LEVEL 13 / STAY 🫂
+    </span>
+
+    <div style="height:15px"></div>
+
+    <h2>
+        Stay.
+    </h2>
+
+    <div
+        style="
+            max-width:520px;
+            margin:28px auto;
+        ">
+
+        <p>
+            Stay for the random conversations.
+        </p>
+
+        <p>
+            Stay for the stupid jokes.
+        </p>
+
+        <p>
+            Stay for the days when
+            everything feels too much.
+        </p>
+
+        <p>
+            Stay for the days when
+            everything is amazing.
+        </p>
+
+        <p>
+            Stay for the memories
+            we haven't made yet.
+        </p>
+
+        <p>
+            Stay so I can continue
+            annoying you.
+        </p>
+
+        <div style="height:15px"></div>
+
+        <h2
+            style="
+                color:var(--rose);
+                font-size:2.5rem;
+            ">
+
+            Stay because you're
+            my best friend.
+
+        </h2>
+
+    </div>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="next">
+
+            ONE LAST THING 🥺 →
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   LEVEL 14
+   HUG / THANGAME
+   ========================================================= */
+
+function levelHug() {
+
+return `
+
+<div class="center">
+
+    <span class="pill">
+        FINAL LEVEL / SECRET ENDING 🫂
+    </span>
+
+    <div class="hug-stage">
+
+        <div class="hug-characters">
+
+            <div class="character-left">
+                🧍🏻‍♂️
+            </div>
+
+            <div>
+                💗
+            </div>
+
+            <div class="character-right">
+                🧍🏻‍♀️
+            </div>
+
+        </div>
+
+        <h2 class="hug-title">
+            BIGGEST VIRTUAL
+            <br>
+            HUG EVER 🫂
+        </h2>
+
+    </div>
+
+    <p>
+        Vaa inga 🫂
+    </p>
+
+    <div style="margin-top:22px">
+
+        <p
+            class="script"
+            style="
+                font-size:1.8rem;
+                color:var(--rose);
+            ">
+
+            You are my
+            <b>Thangame.</b> 💗
+
+        </p>
+
+    </div>
+
+    <div style="margin-top:20px">
+
+        <button
+            class="flower-button"
+            id="flowerButton"
+            type="button">
+
+            🌷
+
+        </button>
+
+    </div>
+
+    <p class="small">
+        Your flower.
+        Obviously.
+    </p>
+
+    <div class="actions">
+
+        <button
+            class="btn"
+            data-action="final">
+
+            FINAL SCREEN 💗
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   FINAL SCREEN
+   ========================================================= */
+
+function levelEnding() {
+
+document.body.classList.remove(
+    "yellow-mode"
+);
+
+return `
+
+<div class="center final-card">
+
+    <div
+        style="
+            font-size:3rem;
+            margin-bottom:18px;
+        ">
+
+        🌷 ✦ 💗 ✦ 🌷
+
+    </div>
+
+    <span class="pill">
+        FRIENDSHIP.EXE — COMPLETE 💗
+    </span>
+
+    <div style="height:18px"></div>
+
+    <h1
+        style="
+            color:var(--rose);
+            font-size:
+                clamp(
+                    3rem,
+                    12vw,
+                    5rem
+                );
+        ">
+
+        Love You sooo
+        muchh Yazhiniii 💗
+
+    </h1>
+
+    <div
+        style="
+            max-width:500px;
+            margin:30px auto;
+        ">
+
+        <p>
+            <b>
+                My bestest friend.
+            </b>
+        </p>
+
+        <p>
+            My favorite menace.
+        </p>
+
+        <p>
+            My forever partner in chaos.
+        </p>
+
+        <p>
+            My Thangame. 💗
+        </p>
+
+        <p>
+            You're stuck with me.
+            Sorry. 🫂
+        </p>
+
+        <div style="height:20px"></div>
+
+        <p>
+            Whatever weird phases
+            life throws at us...
+        </p>
+
+        <p>
+            I hope this little
+            safe space stays ours.
+        </p>
+
+        <p>
+            I hope we keep talking.
+        </p>
+
+        <p>
+            Keep laughing.
+        </p>
+
+        <p>
+            Keep annoying each other.
+        </p>
+
+        <p>
+            And keep collecting
+            stupid little memories.
+        </p>
+
+        <h2
+            style="
+                margin-top:25px;
+                color:var(--rose);
+            ">
+
+            Because I really,
+            really like having you
+            in my life.
+
+        </h2>
+
+        <p
+            class="script"
+            style="
+                font-size:1.65rem;
+                margin-top:20px;
+            ">
+
+            And honestly...
+
+        </p>
+
+        <p
+            class="script"
+            style="
+                font-size:2rem;
+                color:var(--rose);
+            ">
+
+            I hope this continues. 💗
+
+        </p>
+
+    </div>
+
+    <button
+        class="btn lavender"
+        id="secretButton"
+        type="button">
+
+        ONE LAST SECRET 🤫
+
+    </button>
+
+    <div
+        id="secretMessage"
+        style="
+            display:none;
+            margin-top:25px;
+        ">
+
+        <p
+            class="script"
+            style="
+                font-size:1.5rem;
+            ">
+
+            P.S.
+
+            <br><br>
+
+            If you ever forget how much
+            you mean to me...
+
+            <br><br>
+
+            come back to this little
+            corner of the internet.
+
+            <br><br>
+
+            I'll remind you.
+
+            <br><br>
+
+            Now go smile, idiot. 😭💗
+
+        </p>
+
+    </div>
+
+    <p
+        class="small"
+        style="
+            margin-top:30px;
+        ">
+
+        ⭐ Friendship status:
+        <b>PERMANENT</b>
+
+        <br>
+
+        Secrets discovered:
+        <b id="secretCount">
+            ${secretsFound}
+        </b>
+
+    </p>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   ROUTER
+   ========================================================= */
+
+function renderLevel(level) {
+
+switch (level) {
+
+    case 0:
+        render(
+            levelOpening()
+        );
+        break;
+
+    case 1:
+        render(
+            levelBeginning()
+        );
+        break;
+
+    case 2:
+        render(
+            levelFirstText()
+        );
+        break;
+
+    case 3:
+        render(
+            levelStats()
+        );
+        break;
+
+    case 4:
+        render(
+            levelMemoryLane()
+        );
+        break;
+
+    case 5:
+        render(
+            levelVibrance()
+        );
+        break;
+
+    case 6:
+        render(
+            levelYellow()
+        );
+        break;
+
+    case 7:
+        render(
+            levelProud()
+        );
+        break;
+
+    case 8:
+        render(
+            levelThings()
+        );
+        break;
+
+    case 9:
+        render(
+            levelSerious()
+        );
+        break;
+
+    case 10:
+        render(
+            levelWhy()
+        );
+        break;
+
+    case 11:
+        render(
+            levelSafeSpace()
+        );
+        break;
+
+    case 12:
+        render(
+            levelQuestion()
+        );
+        break;
+
+    case 13:
+        render(
+            levelStay()
+        );
+        break;
+
+    case 14:
+        render(
+            levelHug()
+        );
+        break;
+
+    case 15:
+        render(
+            levelEnding()
+        );
+        break;
+
+    default:
+
+        currentLevel = 0;
+
+        render(
+            levelOpening()
+        );
+
+}
+
+}
+
+
+/* =========================================================
+   EVENT BINDING
+   ========================================================= */
+
+function bindButtons() {
+
+
+/* ---------------------------------------------------------
+   NEXT
+   --------------------------------------------------------- */
+
+document
+    .querySelectorAll(
+        '[data-action="next"]'
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                playTone(
+                    620,
+                    .06
+                );
+
+                nextLevel();
+
+            }
+        );
+
+    });
+
+
+/* ---------------------------------------------------------
+   OPEN
+   --------------------------------------------------------- */
+
+const openButton =
+    document.querySelector(
+        '[data-action="open"]'
+    );
+
+if (openButton) {
+
+    openButton.addEventListener(
+        "click",
+        () => {
+
+            createConfetti(30);
+
+            setTimeout(
+                nextLevel,
+                400
+            );
+
+        }
+    );
+
+}
+
+
+/* ---------------------------------------------------------
+   SECRET OBJECTS
+   --------------------------------------------------------- */
+
+document
+    .querySelectorAll(
+        "[data-secret]"
+    )
+    .forEach(object => {
+
+        object.addEventListener(
+            "click",
+            () => {
+
+                const message =
+                    object.dataset.secret
+                        .replace(
+                            /\s+/g,
+                            " "
+                        )
+                        .trim();
+
+                secretsFound++;
+
+                showToast(
+                    message
+                );
+
+                playTone(
+                    800,
+                    .07
+                );
+
+            }
+        );
+
+    });
+
+
+/* ---------------------------------------------------------
+   MEMORY LANE
+   --------------------------------------------------------- */
+
+document
+    .querySelectorAll(
+        "[data-memory]"
+    )
+    .forEach(memory => {
+
+        memory.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    memory.classList.contains(
+                        "checked"
+                    )
+                )
+                    return;
+
+                memory.classList.add(
+                    "checked"
+                );
+
+                const checkbox =
+                    memory.querySelector(
+                        ".memory-checkbox"
+                    );
+
+                checkbox.textContent =
+                    "✓";
+
+                memoriesFound++;
+
+                const progress =
+                    document.getElementById(
+                        "memoryProgress"
+                    );
+
+                if (progress) {
+
+                    progress.innerHTML =
+                        `Memories unlocked:
+                         <b>${memoriesFound} / 5</b>`;
+
+                }
+
+                const messages = [
+                    "Unlocked. 🥺",
+                    "Ohhh this one. 💗",
+                    "Core memory detected.",
+                    "Adding this to the memory bank. 📸",
+                    "Yep. This belongs here. 🌷"
+                ];
+
+                showToast(
+                    messages[
+                        memoriesFound - 1
+                    ]
+                );
+
+                playTone(
+                    620,
+                    .07
+                );
+
+                if (
+                    memoriesFound === 5
+                ) {
+
+                    const complete =
+                        document.getElementById(
+                            "memoryComplete"
+                        );
+
+                    if (complete) {
+
+                        complete.style.display =
+                            "block";
+
+                    }
+
+                    createPetals(10);
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* ---------------------------------------------------------
+   HEARTS
+   --------------------------------------------------------- */
+
+document
+    .querySelectorAll(
+        "[data-reason]"
+    )
+    .forEach(heart => {
+
+        heart.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    heart.classList.contains(
+                        "found"
+                    )
+                )
+                    return;
+
+                heart.classList.add(
+                    "found"
+                );
+
+                heart.textContent =
+                    "💗";
+
+                heart.disabled =
+                    true;
+
+                heartsFound++;
+
+                const display =
+                    document.getElementById(
+                        "reasonDisplay"
+                    );
+
+                display.textContent =
+                    heart.dataset.reason
+                        .replace(
+                            /\s+/g,
+                            " "
+                        )
+                        .trim();
+
+                playTone(
+                    650,
+                    .08
+                );
+
+                if (
+                    heartsFound >= 6
+                ) {
+
+                    const finalHeart =
+                        document.getElementById(
+                            "finalHeart"
+                        );
+
+                    if (finalHeart) {
+
+                        finalHeart.style.display =
+                            "block";
+
+                    }
+
+                    createPetals(8);
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* ---------------------------------------------------------
+   YES
+   --------------------------------------------------------- */
+
+const yesButton =
+    document.querySelector(
+        '[data-action="yes"]'
+    );
+
+if (yesButton) {
+
+    yesButton.addEventListener(
+        "click",
+        () => {
+
+            createConfetti(55);
+
+            showToast(
+                "GOOD. THAT'S ALL I WANTED. 💗"
+            );
+
+            playTone(
+                750,
+                .1
+            );
+
+            setTimeout(
+                nextLevel,
+                1100
+            );
+
+        }
+    );
+
+}
+
+
+/* ---------------------------------------------------------
+   NO BUTTON
+   --------------------------------------------------------- */
+
+const noButton =
+    document.getElementById(
+        "noButton"
+    );
+
+const noZone =
+    document.getElementById(
+        "noZone"
+    );
+
+const noMessage =
+    document.getElementById(
+        "noMessage"
+    );
+
+if (
+    noButton &&
+    noZone
+) {
+
+    const messages = [
+
+        "Nice try. 😭",
+
+        "Absolutely not.",
+
+        "Incorrect answer.",
+
+        "The system disagrees.",
+
+        "Girl, please.",
+
+        "You really thought I'd let you leave? 😭",
+
+        "Try again.",
+
+        "NOPE. 💀"
+
+    ];
+
+
+    function moveNoButton() {
+
+        const zoneWidth =
+            noZone.clientWidth;
+
+        const zoneHeight =
+            noZone.clientHeight;
+
+        const buttonWidth =
+            noButton.offsetWidth;
+
+        const buttonHeight =
+            noButton.offsetHeight;
+
+        const maxX =
+            Math.max(
+                0,
+                zoneWidth -
+                buttonWidth
+            );
+
+        const maxY =
+            Math.max(
+                0,
+                zoneHeight -
+                buttonHeight
+            );
+
+        const x =
+            Math.random() *
+            maxX;
+
+        const y =
+            Math.random() *
+            maxY;
+
+        noButton.style.left =
+            `${x}px`;
+
+        noButton.style.top =
+            `${y}px`;
+
+        noButton.style.transform =
+            "none";
+
+        if (noMessage) {
+
+            noMessage.textContent =
+                messages[
+                    Math.floor(
+                        Math.random() *
+                        messages.length
+                    )
+                ];
+
+        }
+
+        playTone(
+            350,
+            .06
+        );
+
+    }
+
+
+    noButton.addEventListener(
+        "mouseenter",
+        moveNoButton
+    );
+
+
+    noButton.addEventListener(
+        "touchstart",
+        event => {
+
+            event.preventDefault();
+
+            moveNoButton();
+
+        },
+        {
+            passive:false
+        }
+    );
+
+
+    noButton.addEventListener(
+        "click",
+        event => {
+
+            event.preventDefault();
+
+            moveNoButton();
+
+        }
+    );
+
+}
+
+
+/* ---------------------------------------------------------
+   HUG / FLOWER
+   --------------------------------------------------------- */
+
+const flowerButton =
+    document.getElementById(
+        "flowerButton"
+    );
+
+if (flowerButton) {
+
+    flowerButton.addEventListener(
+        "click",
+        () => {
+
+            createPetals(20);
+
+            showToast(
+                "🌷 A flower for my Thangame."
+            );
+
+            playTone(
+                720,
+                .09
+            );
+
+        }
+    );
+
+}
+
+
+/* ---------------------------------------------------------
+   FINAL
+   --------------------------------------------------------- */
+
+const finalButton =
+    document.querySelector(
+        '[data-action="final"]'
+    );
+
+if (finalButton) {
+
+    finalButton.addEventListener(
+        "click",
+        () => {
+
+            currentLevel =
+                15;
+
+            createPetals(20);
+
+            renderLevel(
+                15
+            );
+
+        }
+    );
+
+}
+
+
+/* ---------------------------------------------------------
+   SECRET FINAL
+   --------------------------------------------------------- */
+
+const secretButton =
+    document.getElementById(
+        "secretButton"
+    );
+
+if (secretButton) {
+
+    secretButton.addEventListener(
+        "click",
+        () => {
+
+            const message =
+                document.getElementById(
+                    "secretMessage"
+                );
+
+            if (!message)
+                return;
+
+            message.style.display =
+                "block";
+
+            secretButton.remove();
+
+            createPetals(12);
+
+            playTone(
+                550,
+                .12
+            );
+
+        }
+    );
+
+}
+
+}
+
+
+/* =========================================================
+   SOUND TOGGLE
+   ========================================================= */
+
+soundToggle.addEventListener(
+    "click",
+    () => {
+
+        soundEnabled =
+            !soundEnabled;
+
+        soundToggle.textContent =
+            soundEnabled
+                ? "🎵 soundtrack: ON"
+                : "🎵 soundtrack: OFF";
+
+        if (soundEnabled) {
+
+            playTone(
+                520,
+                .08
+            );
+
+            showToast(
+                "Tiny soundtrack activated 🎵"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+renderLevel(0);
+
+
+})();
+
+</script>
+
+</body>
+</html>
